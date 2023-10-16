@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.scan.IdCardScanFragment">
+
+    <com.nhncloud.android.ocr.idcard.view.IdCardRecognitionCameraPreview
+        android:id="@+id/camera_preview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:guideBackgroundColor="#33000000"
+        app:guideView="@id/guide_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/guide_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingHorizontal="30dp"
+                android:text="@string/id_card_scan_guide_message"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.nhncloud.android.ocr.idcard.sample.ui.scan.IdCardScanCustomGuideView
+                android:id="@+id/guide_view"
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/guide_message">
+
+                <View
+                    android:id="@+id/guide_corner_left_top"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/scan_guide_left_top_white"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/guide_corner_left_bottom"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/scan_guide_left_bottom_white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <View
+                    android:id="@+id/guide_corner_right_top"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/scan_guide_right_top_white"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/guide_corner_right_bottom"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/scan_guide_right_bottom_white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+            </com.nhncloud.android.ocr.idcard.sample.ui.scan.IdCardScanCustomGuideView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.nhncloud.android.ocr.idcard.view.IdCardRecognitionCameraPreview>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

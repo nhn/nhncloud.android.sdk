@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">CreditCardRecognizer</string>
+    <string name="ok">OK</string>
+    <string name="title_scan_fragment">Card Scan</string>
+    <string name="title_result_fragment">Card Info</string>
+    <string name="credit_card_recognition_using_default_ui">Credit Card Recognition\n(Default UI)</string>
+    <string name="credit_card_recognition_using_custom_ui">Credit Card Recognition\n(Custom UI)</string>
+
+    <!-- Credit Card Scan Fragment -->
+    <string name="credit_card_scan_torch_on" translatable="false">ON</string>
+    <string name="credit_card_scan_torch_off" translatable="false">OFF</string>
+    <string name="credit_card_scan_vertical">Scan a vertical card</string>
+    <string name="credit_card_scan_horizontal">Scan a horizontal card</string>
+    <string name="credit_card_scan_guide_message">Please align the card to be registered with the rectangle</string>
+
+    <!-- Credit Card Info Fragment -->
+    <string name="credit_card_image">Credit Card Image</string>
+    <string name="credit_card_number">Card Number</string>
+    <string name="credit_card_expiration_date">Expiration Date</string>
+</resources>

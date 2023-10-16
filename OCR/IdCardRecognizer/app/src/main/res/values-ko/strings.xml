@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">신분증 인식</string>
+    <string name="ok">확인</string>
+    <string name="title_scan_fragment">신분증 스캔</string>
+    <string name="title_result_fragment">신분증 정보</string>
+    <string name="id_card_recognition_using_default_ui">신분증 인식 (기본 UI)</string>
+    <string name="id_card_recognition_using_custom_ui">신분증 인식 (사용자 UI)</string>
+
+    <!-- ID Card Scan Fragment -->
+    <string name="id_card_scan_guide_message">등록할 신분증을 사각형에 맞춰주세요</string>
+
+    <!-- ID Card Info Fragment -->
+    <string name="id_card_image">신분증 이미지</string>
+    <string name="id_card_name">이름</string>
+    <string name="id_card_resident_number">주민등록번호</string>
+    <string name="id_card_issue_date">발급 일자</string>
+    <string name="id_card_issuer">발급 기관</string>
+    <string name="id_card_serial_number">암호 일련 번호</string>
+    <string name="id_card_driver_number">면허 번호</string>
+    <string name="id_card_license_type">면허 종류</string>
+    <string name="id_card_license_condition">면허 조건</string>
+
+    <!-- ID Card Authenticity -->
+    <string name="id_card_authenticity">진위 확인</string>
+</resources>

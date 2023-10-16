@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_id_card_auto_recognizer_graph"
+    app:startDestination="@id/scanFragment">
+
+    <fragment
+        android:id="@+id/scanFragment"
+        android:name="com.nhncloud.android.ocr.idcard.sample.ui.scan.IdCardScanFragment"
+        android:label="@string/title_scan_fragment"
+        tools:layout="@layout/fragment_id_card_scan">
+        <action
+            android:id="@+id/action_scanFragment_to_infoFragment"
+            app:destination="@id/infoFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.nhncloud.android.ocr.idcard.sample.ui.info.IdCardInfoFragment"
+        android:label="@string/title_result_fragment"
+        tools:layout="@layout/fragment_id_card_info"/>
+
+</navigation>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Name -->
+    <LinearLayout
+        android:id="@+id/id_card_name_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="@string/id_card_name"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <com.nhncloud.android.ocr.SecureTextView
+            android:id="@+id/id_card_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:textColor="@color/white"
+            app:textSize="18sp"
+            app:textStyle="bold"/>
+    </LinearLayout>
+
+    <!-- Resident number  -->
+    <LinearLayout
+        android:id="@+id/id_card_resident_number_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="@string/id_card_resident_number"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <com.nhncloud.android.ocr.SecureTextView
+            android:id="@+id/id_card_resident_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:textColor="@color/white"
+            app:textSize="18sp"
+            app:textStyle="bold"/>
+    </LinearLayout>
+
+    <!-- Issue Date  -->
+    <LinearLayout
+        android:id="@+id/id_card_issue_date_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:letterSpacing="-0.01"
+            android:text="@string/id_card_issue_date"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <com.nhncloud.android.ocr.SecureTextView
+            android:id="@+id/id_card_issue_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:textColor="@color/white"
+            app:textSize="18sp"
+            app:textStyle="bold"/>
+    </LinearLayout>
+
+    <!-- Issuer  -->
+    <LinearLayout
+        android:id="@+id/id_card_issuer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:letterSpacing="-0.01"
+            android:text="@string/id_card_issuer"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <com.nhncloud.android.ocr.SecureTextView
+            android:id="@+id/id_card_issuer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:textColor="@color/white"
+            app:textSize="18sp"
+            app:textStyle="bold"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">IDCardRecognizer</string>
+    <string name="ok">OK</string>
+    <string name="title_scan_fragment">ID Card Scan</string>
+    <string name="title_result_fragment">ID Card Info</string>
+    <string name="id_card_recognition_using_default_ui">ID Card Recognition\n(Default UI)</string>
+    <string name="id_card_recognition_using_custom_ui">ID Card Recognition\n(Custom UI)</string>
+
+    <!-- ID Card Scan Fragment -->
+    <string name="id_card_scan_guide_message">Please align the ID card to be registered with the rectangle</string>
+
+    <!-- ID Card Info Fragment -->
+    <string name="id_card_image">ID Card Image</string>
+    <string name="id_card_name">Name</string>
+    <string name="id_card_resident_number">Resident Registration Number</string>
+    <string name="id_card_issue_date">Issued Date</string>
+    <string name="id_card_issuer">Issuing Organization</string>
+    <string name="id_card_serial_number">Password Serial Number</string>
+    <string name="id_card_driver_number">License Number</string>
+    <string name="id_card_license_type">License Type</string>
+    <string name="id_card_license_condition">License Condition</string>
+
+    <!-- ID Card Authenticity -->
+    <string name="id_card_authenticity">Authenticity</string>
+</resources>

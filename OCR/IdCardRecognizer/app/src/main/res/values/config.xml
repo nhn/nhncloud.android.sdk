@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_key" translatable="false">your_app_key</string>
+    <string name="secret_key" translatable="false">your_secret_key</string>
+</resources>

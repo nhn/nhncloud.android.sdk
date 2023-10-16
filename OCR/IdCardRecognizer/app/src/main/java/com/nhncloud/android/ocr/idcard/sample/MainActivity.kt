@@ -1,0 +1,166 @@
+package com.nhncloud.android.ocr.idcard.sample
+
+import android.Manifest
+import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Bundle
+import android.widget.Button
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import com.nhncloud.android.ocr.NhnCloudOcr
+import com.nhncloud.android.ocr.idcard.IdCardData
+import com.nhncloud.android.ocr.idcard.IdCardDriverData
+import com.nhncloud.android.ocr.idcard.IdCardRecognitionService
+import com.nhncloud.android.ocr.idcard.IdCardResidentData
+import com.nhncloud.android.ocr.idcard.sample.ui.IdCardRecognizerActivity
+import com.nhncloud.android.ocr.security.SecureString
+
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var nhnCloudOcr : NhnCloudOcr
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        if (resources.getString(R.string.app_key) == DEFAULT_APP_KEY ||
+            resources.getString(R.string.secret_key) == DEFAULT_SECRET_KEY) {
+            error("Use your app key and secret key in config.xml.")
+        }
+
+        findViewById<Button>(R.id.recognize_using_default_ui).setOnClickListener {
+            if (!IdCardRecognitionService.isAvailable(this)) {
+                alertMessage("ID card recognition service is not available.")
+                return@setOnClickListener
+            }
+
+            nhnCloudOcr = NhnCloudOcr.newBuilder(this)
+                .appKey(getString(R.string.app_key))
+                .secretKey(getString(R.string.secret_key))
+                .build()
+
+            val idCardRecognizer = nhnCloudOcr.createIdCardRecognizer()
+            idCardRecognizer.launch(this) { result, data ->
+                if (result.isSuccess) {
+                    showIdCardRecognitionSuccessAlert(data!!)
+                } else {
+                    alertMessage(result.message!!)
+                }
+            }
+        }
+
+        findViewById<Button>(R.id.recognize_using_custom_ui).setOnClickListener {
+            if (!IdCardRecognitionService.isAvailable(this)) {
+                alertMessage("ID card recognition service is not available.")
+                return@setOnClickListener
+            }
+            val intent = Intent(this, IdCardRecognizerActivity::class.java)
+            startActivity(intent)
+        }
+
+        if (!allRuntimePermissionsGranted()) {
+            requestRuntimePermissions()
+        }
+    }
+
+    private fun showIdCardRecognitionSuccessAlert(data: IdCardData) {
+        // Conversion to String object is not recommended.
+        val message = when (data) {
+            is IdCardResidentData -> {
+                """
+                name: ${data.name.asString()}
+                residentNumber: ${data.residentNumber.asString()}
+                issueDate: ${data.issueDate.asString()}
+                """.trimIndent()
+            }
+
+            is IdCardDriverData -> {
+                """
+                name: ${data.name.asString()}
+                residentNumber: ${data.residentNumber.asString()}                
+                driverLicenseNumber: ${data.driverLicenseNumber.asString()}
+                serialNumber: ${data.serialNumber.asString()}
+                """.trimIndent()
+            }
+            else -> error("Invalid data.")
+        }
+
+        AlertDialog.Builder(this)
+            .setMessage(message)
+            .setPositiveButton("ok", null)
+            .setNeutralButton(R.string.id_card_authenticity) { _, _ ->
+                nhnCloudOcr.createIdCardAuthenticator()
+                    .authenticateAsync(data) { result, isAuthenticity ->
+                        val authenticityResult = if (result.isSuccess) {
+                            "isAuthenticity : $isAuthenticity"
+                        } else {
+                            "code : ${result.code}\n${result.message}"
+                        }
+                        runOnUiThread {
+                            alertMessage(authenticityResult)
+                        }
+                    }
+            }.show()
+    }
+
+    private fun allRuntimePermissionsGranted(): Boolean {
+        for (permission in REQUIRED_RUNTIME_PERMISSIONS) {
+            if (!isPermissionGranted(this, permission)) {
+                return false
+            }
+        }
+        return true
+    }
+
+    private fun requestRuntimePermissions() {
+        val permissionToRequest = ArrayList<String>()
+        for (permission in REQUIRED_RUNTIME_PERMISSIONS) {
+            if (!isPermissionGranted(this, permission)) {
+                permissionToRequest.add(permission)
+            }
+        }
+
+        if (permissionToRequest.isNotEmpty()) {
+            ActivityCompat.requestPermissions(
+                this,
+                permissionToRequest.toTypedArray(),
+                PERMISSION_REQUEST_CODE
+            )
+        }
+    }
+
+    private fun alertMessage(message: String) {
+        AlertDialog.Builder(this)
+            .setMessage(message)
+            .setPositiveButton(R.string.ok, null)
+            .show()
+    }
+
+    companion object {
+        private const val DEFAULT_APP_KEY = "your_app_key"
+        private const val DEFAULT_SECRET_KEY = "your_secret_key"
+
+        private const val PERMISSION_REQUEST_CODE = 100
+
+        private val REQUIRED_RUNTIME_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
+
+        private fun isPermissionGranted(context: Context, permission: String): Boolean {
+            return ContextCompat.checkSelfPermission(
+                context,
+                permission
+            ) == PackageManager.PERMISSION_GRANTED
+        }
+
+        // Conversion to String object is not recommended.
+        private fun SecureString.asString(): String {
+            val chars = CharArray(length)
+            for (i in chars.indices) {
+                chars[i] = get(i)
+            }
+            return String(chars)
+        }
+    }
+}
