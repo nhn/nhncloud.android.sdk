@@ -23,9 +23,9 @@
             android:id="@+id/id_card_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:textColor="@color/white"
-            app:textSize="18sp"
-            app:textStyle="bold"/>
+            app:com_nhncloud_text_color="@color/white"
+            app:com_nhncloud_text_size="18sp"
+            app:com_nhncloud_text_style="bold"/>
     </LinearLayout>
 
     <!-- Resident number  -->
@@ -47,9 +47,9 @@
             android:id="@+id/id_card_resident_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:textColor="@color/white"
-            app:textSize="18sp"
-            app:textStyle="bold"/>
+            app:com_nhncloud_text_color="@color/white"
+            app:com_nhncloud_text_size="18sp"
+            app:com_nhncloud_text_style="bold"/>
     </LinearLayout>
 
     <!-- Issue Date  -->
@@ -72,9 +72,9 @@
             android:id="@+id/id_card_issue_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:textColor="@color/white"
-            app:textSize="18sp"
-            app:textStyle="bold"/>
+            app:com_nhncloud_text_color="@color/white"
+            app:com_nhncloud_text_size="18sp"
+            app:com_nhncloud_text_style="bold"/>
     </LinearLayout>
 
     <!-- Issuer  -->
@@ -97,8 +97,8 @@
             android:id="@+id/id_card_issuer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:textColor="@color/white"
-            app:textSize="18sp"
-            app:textStyle="bold"/>
+            app:com_nhncloud_text_color="@color/white"
+            app:com_nhncloud_text_size="18sp"
+            app:com_nhncloud_text_style="bold"/>
     </LinearLayout>
 </LinearLayout>

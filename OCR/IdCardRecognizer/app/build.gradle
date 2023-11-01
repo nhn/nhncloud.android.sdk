@@ -52,7 +52,7 @@ dependencies {
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
     // NHN Cloud OCR Services
-    implementation 'com.nhncloud.android:nhncloud-idcard-recognizer:1.8.0'
+    implementation 'com.nhncloud.android:nhncloud-idcard-recognizer:1.8.1'
 
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.8.1'
 }

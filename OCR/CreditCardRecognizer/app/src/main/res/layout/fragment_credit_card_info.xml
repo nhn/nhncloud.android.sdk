@@ -51,8 +51,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{viewModel.cardNumbers}"
-                app:textColor="@color/white"
-                app:textSize="24sp"/>
+                app:com_nhncloud_text_color="@color/white"
+                app:com_nhncloud_text_size="24sp"/>
 
             <!-- Expiration Date -->
             <TextView
@@ -67,8 +67,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{viewModel.expirationDate.value}"
-                app:textColor="@color/white"
-                app:textSize="24sp"/>
+                app:com_nhncloud_text_color="@color/white"
+                app:com_nhncloud_text_size="24sp"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

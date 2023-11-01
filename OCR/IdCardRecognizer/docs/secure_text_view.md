@@ -12,9 +12,10 @@
     android:id="@+id/id_card_name_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:textColor="#ffffff"
-    app:textSize="15sp"
-    app:textStyle="bold"/>
+    app:com_nhncloud_text_color="#ffffff"
+    app:com_nhncloud_text_size="15sp"
+    app:com_nhncloud_text_style="bold"
+    app:com_nhncloud_letter_spacing="0.3"/>
 ```
 
 SecureTextView의 setText 메서드를 통해 표시할 텍스트를 설정합니다.
@@ -32,9 +33,10 @@ idCardNameView.setText(name)
     android:id="@+id/id_card_license_type_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:textColor="#ffffff"
-    app:textSize="15sp"
-    app:textStyle="bold"/>
+    app:com_nhncloud_text_color="#ffffff"
+    app:com_nhncloud_text_size="15sp"
+    app:com_nhncloud_text_style="bold"
+    app:com_nhncloud_letter_spacing="0.3"/>
 ```
 
 SecureTextGroup의 addTextViews 메서드는 배열을 파라미터로 받아 하나의 요소마다 한 줄의 텍스트로 설정합니다.

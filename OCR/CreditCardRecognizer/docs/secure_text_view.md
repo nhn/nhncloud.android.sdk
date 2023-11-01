@@ -12,9 +12,10 @@
     android:id="@+id/credit_card_first_numbers_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:textColor="#ffffff"
-    app:textSize="15sp"
-    app:textStyle="bold"/>
+    app:com_nhncloud_text_color="#ffffff"
+    app:com_nhncloud_text_size="15sp"
+    app:com_nhncloud_text_style="bold"
+    app:com_nhncloud_letter_spacing="0.3"/>
 ```
 
 SecureTextView의 setText 메서드를 통해 표시할 텍스트를 설정합니다.
